@@ -1,5 +1,11 @@
 def check_arg(family: list, start: int, end: int) -> bool:
 
+    '''
+    A checker of argument, check length, type and protection
+    Argument: a list, an int for start and end
+    Return: Bool, True on succes, False on fail
+    '''
+
     if type(start) != int or type(end) != int:
         print("Error: start and end must be int type")
         return False
@@ -31,6 +37,12 @@ def check_arg(family: list, start: int, end: int) -> bool:
 
 def print_shape(lst: list, word: str) -> None:
 
+    '''
+    Function that print the old list and the new list
+    Argument: the list to print, and a word for describe the list
+    Return: None
+    '''
+
     print("My", word, "is : (", end="")
     print(len(lst), end="")
     if len(lst) > 0:
@@ -41,6 +53,12 @@ def print_shape(lst: list, word: str) -> None:
 
 
 def slice_me(family: list, start: int, end: int) -> list:
+
+    '''
+    Function that rlice a list from start to end
+    Argument: a list, an int for start where the slice start, an int for end for where the new list end
+    Return: a slice of the original list from start to end
+    '''
 
     if check_arg(family, start, end) == False:
         return []
