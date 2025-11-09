@@ -1,11 +1,11 @@
 def NULL_not_found(object: any)-> int:
 
     type_names = {
-        "<class 'NoneType'>": "None",
-        "<class 'float'>": "nan",
-        "<class 'int'>": "0",
-        "<class 'str'>": "",
-        "<class 'bool'>": "False"
+        "<class 'NoneType'>": "Nothing",
+        "<class 'float'>": "Cheese",
+        "<class 'int'>": "Zero",
+        "<class 'str'>": "Empty",
+        "<class 'bool'>": "Fake"
     }
 
     object_type = str(type(object))
@@ -13,12 +13,8 @@ def NULL_not_found(object: any)-> int:
     
     if object_type in type_names_key:
         tmp = str(object)
-        if tmp == type_names[object_type]:
-            print(":", type_names[object_type], object_type)
+        if tmp == "None" or tmp == "nan" or tmp == "0" or tmp == "" or tmp == "False":
+            print(type_names[object_type] + ":", object, object_type)
             return 0
-        else:
-            print("Type not Found")
-            return 1
-    else:
-        print("Type not Found")
-        return 1
+    print("Type not Found")
+    return 1

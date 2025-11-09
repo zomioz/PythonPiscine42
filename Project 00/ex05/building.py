@@ -1,32 +1,35 @@
 import sys
 
+
 def checker_arg() -> int:
 
     '''
-    Checker of Arguments, count and check the number of arguments of the program.
+    Checker of Arguments, count and check the number of arguments.
     Protected by a try/except to avoid any crash.
     Return 1 or 0, so thee main can exit()
     '''
 
     number_of_arg = len(sys.argv) - 1
-    
+
     try:
         if number_of_arg > 1:
             raise AssertionError("Too many Argument")
         elif number_of_arg <= 0:
             raise AssertionError("Please provide a string to the program")
+        elif len(sys.argv[1]) < 1:
+            raise AssertionError("Argument length must be > 1")
         else:
             return 0
-
     except AssertionError as error:
         print("AssertionError :", error)
         return 1
+
 
 def count_everything() -> dict:
 
     '''
     Function to count every char of the program input protectd by a try/except.
-    Count everything with the sum() function, and store it in the database dict.
+    Count everything with the sum() function, store it in the database dict.
     return the dict or NULL if an error occurs.
     '''
 
@@ -65,12 +68,12 @@ def print_everything(database: dict):
     '''
 
     print("The text contains", database["characters"], "characters:")
-    print(database["upper"] , "upper letters")
-    print(database["lower"] , "lower letters")
-    print(database["punctuation"] , "punctuation marks")
-    print(database["spaces"] , "spaces")
-    print(database["digit"] , "digits")
-    
+    print(database["upper"], "upper letters")
+    print(database["lower"], "lower letters")
+    print(database["punctuation"], "punctuation marks")
+    print(database["spaces"], "spaces")
+    print(database["digit"], "digits")
+
 
 def main():
 

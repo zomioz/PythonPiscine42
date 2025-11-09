@@ -5,11 +5,7 @@ def all_thing_is_obj(object):
         "<class 'tuple'>": "Tuple",
         "<class 'set'>": "Set",
         "<class 'dict'>": "Dict",
-        "<class 'str'>": "is in the kitchen",
-        "<class 'int'>": 'Int',
-        "<class 'float'>": 'Float',
-        "<class 'bool'>": 'Bool',
-        "<class 'NoneType'>": 'NoneType'
+        "<class 'str'>": "is in the kitchen"
     }
 
     tmp = str(type(object))
@@ -23,6 +19,6 @@ def all_thing_is_obj(object):
             print(ft_dict[tmp], ":", type(object))
 
     else:
-        print("No type found")
+        print("Type not found")
     
     return 42
