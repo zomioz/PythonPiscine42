@@ -1,12 +1,12 @@
 import os
 
 
-def check_terminal_size(terminal: tuple, lst:range) -> list:
+def check_terminal_size(terminal: tuple, lst: range) -> list:
 
     '''
-    Function to check the size of progression bar and end of progression bar in function of the terminal size
-    Argument: a tuple that correspond to the return of os.get_terminal_size(), and the range of the function range()
-    Return: a list that contain in [0] the progression_bar size, and in [1] the end size
+    heck the size of progression bar in function of the terminal size
+    Argument: tuple from os.get_terminal_size(), and a range()
+    Return: a list of progression_bar size and the end size
     '''
 
     terminal_size = int(terminal[0])
@@ -20,22 +20,22 @@ def check_terminal_size(terminal: tuple, lst:range) -> list:
         return [1, terminal_size - 5 - 1]
 
 
-def print_everything(length: int, x: int, number_of_chr: int, size: int) -> None:
+def print_everything(len: int, x: int, nbr: int, size: int) -> None:
 
     '''
     Display the progression bar
-    Argument: first length of range, second iterator x, third number of char max, fourth size of progression bar 
+    Argument: len of range, iterator, char max, size of progression bar
     Return: None
     '''
 
-    print(int((x * 100 / length)), end ="")
+    print(int((x * 100 / len)), end="")
     print("%|", end="")
-    print("█" * number_of_chr, end="")
-    if number_of_chr < size:
-        print(" " * (size - number_of_chr), end="")
-    print("|", length, end="")
+    print("█" * nbr, end="")
+    if nbr < size:
+        print(" " * (size - nbr), end="")
+    print("|", x, end="")
     print("/", end="")
-    print(length, end="\r")
+    print(len, end="\r")
 
 
 def ft_tqdm(lst: range) -> None:
@@ -46,7 +46,7 @@ def ft_tqdm(lst: range) -> None:
     Return: None
     '''
 
-    try :
+    try:
         terminal_size_tuple = os.get_terminal_size()
         size_progression_bar = check_terminal_size(terminal_size_tuple, lst)
 

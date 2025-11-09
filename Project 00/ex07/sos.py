@@ -56,9 +56,9 @@ def morse_dictionnary(c: chr) -> str:
 
 
 def checker_arg() -> bool:
-    
+
     '''
-    checker of argument, check the number of argv and if each chr are alphanumeric
+    checker of argument, check the number of argv if each is alphanumeric
     no argument
     return a bool :False on fail, True on succes
     '''
@@ -75,7 +75,7 @@ def checker_arg() -> bool:
         tmp2 = [s.upper() for s in tmp]
         for x in tmp2:
             if morse_dictionnary(x) == 0:
-                raise AssertionError("argument must be alphanumeric characters")
+                raise AssertionError("argument must be alphanumeric char")
 
         return True
 
@@ -110,11 +110,12 @@ def main():
     the program need 1 argument
     '''
 
-    if checker_arg() == False:
+    if not checker_arg():
         return 1
-    
+
     treat_arg()
     return 0
+
 
 if __name__ == "__main__":
     main()

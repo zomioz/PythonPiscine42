@@ -4,6 +4,12 @@ from ft_filter import ft_filter
 
 def checker_arg():
 
+    '''
+    Checker of arg, verify number and type of arg
+    no arguments
+    return 1 on fail
+    '''
+
     number_of_arg = len(sys.argv) - 1
 
     try:
@@ -20,6 +26,12 @@ def checker_arg():
 
 
 def main():
+
+    '''
+    main of the program, launch checker and ft_filter
+    no argument
+    no return
+    '''
 
     if checker_arg() == 1:
         exit()
