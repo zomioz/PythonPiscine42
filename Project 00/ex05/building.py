@@ -6,7 +6,7 @@ def checker_arg() -> int:
     '''
     Checker of Arguments, count and check the number of arguments.
     Protected by a try/except to avoid any crash.
-    Return 1 or 0, so thee main can exit()
+    Return 1 or 0, so thee main can exit(), 2 if program need input
     '''
 
     number_of_arg = len(sys.argv) - 1
@@ -15,9 +15,9 @@ def checker_arg() -> int:
         if number_of_arg > 1:
             raise AssertionError("Too many Argument")
         elif number_of_arg <= 0:
-            raise AssertionError("Please provide a string to the program")
+            return 2
         elif len(sys.argv[1]) < 1:
-            raise AssertionError("Argument length must be > 1")
+            return 2
         else:
             return 0
     except AssertionError as error:
@@ -25,7 +25,7 @@ def checker_arg() -> int:
         return 1
 
 
-def count_everything() -> dict:
+def count_everything(tmp: str) -> dict:
 
     '''
     Function to count every char of the program input protectd by a try/except.
@@ -41,7 +41,6 @@ def count_everything() -> dict:
         "spaces": 0,
         "digit": 0
     }
-    tmp = sys.argv[1]
     all_punctuation = "!\"$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
 
     try:
@@ -82,9 +81,16 @@ def main():
     Exit() if a function fail.
     '''
 
-    if checker_arg() == 1:
+    tmp = checker_arg()
+    if tmp == 1:
         exit()
-    database = count_everything()
+
+    if tmp == 2:
+        print("What is the text to count?")
+        entry = sys.stdin.readline()
+    else:
+        entry = sys.argv[1]
+    database = count_everything(entry)
     if database == 0:
         exit()
     print_everything(database)
