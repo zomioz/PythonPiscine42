@@ -1,5 +1,5 @@
-import os
-from tqdm import tqdm
+import os as os
+from tqdm import tqdm as tqdm
 
 
 def build():

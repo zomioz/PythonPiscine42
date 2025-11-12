@@ -1,4 +1,4 @@
-import os
+import os as os
 
 
 def uninstall():

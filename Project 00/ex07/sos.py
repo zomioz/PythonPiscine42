@@ -1,4 +1,4 @@
-import sys
+import sys as sys
 
 
 def morse_dictionnary(c: chr) -> str:

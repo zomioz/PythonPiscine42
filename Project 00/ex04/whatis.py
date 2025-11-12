@@ -1,4 +1,4 @@
-import sys
+import sys as sys
 
 try:
     number = len(sys.argv) - 1

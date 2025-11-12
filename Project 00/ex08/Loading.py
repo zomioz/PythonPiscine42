@@ -1,4 +1,4 @@
-import os
+import os as os
 
 
 def check_terminal_size(terminal: tuple, lst: range) -> list:

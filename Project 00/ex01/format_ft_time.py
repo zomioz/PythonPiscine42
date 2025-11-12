@@ -1,4 +1,4 @@
-import time
+import time as time
 
 timestamp = time.time()
 
