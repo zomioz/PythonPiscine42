@@ -1,7 +1,8 @@
-def check_arg_bmi(height: list[int | float], weight: list[int | float]) -> bool:
+def check_arg_bmi(height: list[int | float], weight: list[int | float]) \
+                                                                -> bool:
 
     '''
-    Function to check argument of create_bmi(), check type of argument and length of the two list
+    check argument of create_bmi(), type of argument and length of the two list
     Argument: two list of int or float
     Return: a bool, True on succes, False on fail
     '''
@@ -11,7 +12,7 @@ def check_arg_bmi(height: list[int | float], weight: list[int | float]) -> bool:
 
     if len_height != len_weight:
         return False
-    
+
     for x in height + weight:
         if not isinstance(x, (int, float)):
             return False
@@ -21,10 +22,11 @@ def check_arg_bmi(height: list[int | float], weight: list[int | float]) -> bool:
     return True
 
 
-def create_bmi(height: list[int | float], weight: list[int | float]) -> list[int | float]:
+def create_bmi(height: list[int | float], weight: list[int | float]) \
+                                            -> list[int | float]:
 
     '''
-    Funciton to create a new list of BMI from height and weight
+    Funciton to create a new list of BMI from hei and wei
     Argument: two list of int or float
     Return: a new list of in or float that contain BMI
     '''
@@ -37,7 +39,9 @@ def create_bmi(height: list[int | float], weight: list[int | float]) -> list[int
 
     return bmi_list
 
-def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int | float]:
+
+def give_bmi(height: list[int | float], weight: list[int | float]) \
+                                                -> list[int | float]:
 
     '''
     Funciton that create a list of BMI
@@ -45,13 +49,13 @@ def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int |
     Return: a list of int or float that contain BMI
     '''
 
-    if check_arg_bmi(height, weight) == False:
-        print("Error give_bmi : list must be int or float greater than 0, and the same lenght")
+    if not check_arg_bmi(height, weight):
+        print("Error give_bmi : list must be int or float \
+        greater than 0, and the same lenght")
         return []
-    
+
     bmi_list = create_bmi(height, weight)
     return bmi_list
-
 
 
 def check_arg_limit(bmi: list[int | float], limit: int) -> bool:
@@ -63,12 +67,14 @@ def check_arg_limit(bmi: list[int | float], limit: int) -> bool:
     '''
 
     if type(limit) != int:
-        print("Error apply_limit : Argument must be list of int or float, and an int")
+        print("Error apply_limit : Argument \
+        must be list of int or float, and an int")
         return False
 
     for x in bmi:
         if not isinstance(x, (int, float)):
-            print("Error apply_limit : Argument must be list of int or float, and an int")
+            print("Error apply_limit : Argument must be \
+            list of int or float, and an int")
             return False
 
     return True
@@ -82,7 +88,7 @@ def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
     Return: a list of bool for each case
     '''
 
-    if check_arg_limit(bmi, limit) == False:
+    if not check_arg_limit(bmi, limit):
         return []
 
     bmi_limit = []
@@ -92,5 +98,5 @@ def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
             bmi_limit.append(True)
         else:
             bmi_limit.append(False)
-    
+
     return bmi_limit

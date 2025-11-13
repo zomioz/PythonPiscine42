@@ -11,15 +11,15 @@ def check_arg(family: list, start: int, end: int) -> bool:
         return False
 
     if type(family) != list:
-        print("Error : Bad argument, Argument isn't list")
+        print("Error : Bad argument, Argument isn't a list")
         return False
-    
+
     if len(family) == 0:
         print("Error: Empty list")
         return False
 
     for x in family:
-        if not isinstance(x , list):
+        if not isinstance(x, list):
             print("Error : All sublists must be list type")
             return False
 
@@ -32,8 +32,9 @@ def check_arg(family: list, start: int, end: int) -> bool:
     if start >= len(family) or start < 0:
         print("Error: start isn't in range of family")
         return False
-    
+
     return True
+
 
 def print_shape(lst: list, word: str) -> None:
 
@@ -56,11 +57,12 @@ def slice_me(family: list, start: int, end: int) -> list:
 
     '''
     Function that rlice a list from start to end
-    Argument: a list, an int for start where the slice start, an int for end for where the new list end
+    Argument: a list, an int for start where the slice \
+    start, an int for end for where the new list end
     Return: a slice of the original list from start to end
     '''
 
-    if check_arg(family, start, end) == False:
+    if not check_arg(family, start, end):
         return []
 
     print_shape(family, "shape")
