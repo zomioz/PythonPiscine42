@@ -88,10 +88,7 @@ def ft_grey(array) -> array:
 
     new_array = array.copy().astype(float)
 
-    # Convert to grayscale using only / and =
-    new_array[:, :, 0] = new_array[:, :, 0] / 3
-
-    gray_value = new_array[:, :, 0] / 1
+    gray_value = new_array[:, :, 1] / 3
 
     new_array[:, :, 0] = gray_value
     new_array[:, :, 1] = gray_value
