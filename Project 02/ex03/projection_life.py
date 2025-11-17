@@ -4,6 +4,12 @@ import matplotlib.pyplot as plt
 
 def main() -> bool:
 
+    '''
+    Program to display information about 2 files
+    Argument: None
+    Return: 1 on fail, 0 on succes
+    '''
+
     income_df = load("income_per_person_gdppercapita_ppp_inflation_adjusted.csv")
     expectancy_df = load("life_expectancy_years.csv")
     if income_df is None or expectancy_df is None:
@@ -26,8 +32,8 @@ def main() -> bool:
     ax.set_ylabel("Life Expectancy")
     ax.set_title("1900")
 
-
     plt.show()
+    return 0
 
 
 if __name__ == "__main__":

@@ -3,8 +3,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 from load_csv import load
 
-def convert_population(value):
-    """Convert population strings like '1.5M' or '1500K' to numeric values."""
+def convert_population(value: str) -> float:
+
+    '''
+    Function to Convert population strings to numeric value
+    Argument: a str : The value to convert
+    Return: a float : the convert value
+    '''
+
     if pd.isna(value):
         return np.nan
     
@@ -21,6 +27,12 @@ def convert_population(value):
 
 
 def main() -> bool:
+
+    '''
+    Program to display the populations of two countries
+    Argument: None
+    Return: 1 on fail, 0 on succes
+    '''
 
     df = load('population_total.csv')
     if df is None:

@@ -6,6 +6,12 @@ from mpl_toolkits.axes_grid1 import Divider, Size
 
 def main() -> bool:
 
+    '''
+    Program to load a .csv file and display the information
+    Argument: None
+    Return: 1 on Fail, 0 on succes
+    '''
+
     df = load('life_expectancy_years.csv')
     if df is None:
         return 1
