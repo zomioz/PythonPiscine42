@@ -1,7 +1,7 @@
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 from load_csv import load
+
 
 def convert_population(value: str) -> float:
 
@@ -12,8 +12,8 @@ def convert_population(value: str) -> float:
     '''
 
     if pd.isna(value):
-        return np.nan
-    
+        return None
+
     if isinstance(value, str):
         value = value.strip()
         if value.endswith('M'):
@@ -22,7 +22,7 @@ def convert_population(value: str) -> float:
             return float(value[:-1]) * 1_000
         elif value.endswith('B'):
             return float(value[:-1]) * 1_000_000_000
-    
+
     return float(value)
 
 
@@ -39,24 +39,24 @@ def main() -> bool:
         return 1
 
     try:
-        france_data = df.query("country == 'France'")
-        france_data = france_data.drop(columns=['country']).T
-        france_data.columns = ['France']
-        france_data['France'] = france_data['France'].apply(convert_population)
+        fr_data = df.query("country == 'France'")
+        fr_data = fr_data.drop(columns=['country']).T
+        fr_data.columns = ['France']
+        fr_data['France'] = fr_data['France'].apply(convert_population)
 
-        belgium_data = df.query("country == 'Belgium'")
-        belgium_data = belgium_data.drop(columns=['country']).T
-        belgium_data.columns = ['Belgium']
-        belgium_data['Belgium'] = belgium_data['Belgium'].apply(convert_population)
-        
+        bel_data = df.query("country == 'Belgium'")
+        bel_data = bel_data.drop(columns=['country']).T
+        bel_data.columns = ['Belgium']
+        bel_data['Belgium'] = bel_data['Belgium'].apply(convert_population)
+
     except ValueError:
         print("ValueError : error during reading informations")
         return 1
 
-    both_data = pd.concat([france_data, belgium_data], axis=1)
-    both_data.index = both_data.index.astype(int)
-    both_data = both_data[(both_data.index >= 1800) & (both_data.index <= 2050)]
-    both_data.plot()
+    all_data = pd.concat([fr_data, bel_data], axis=1)
+    all_data.index = all_data.index.astype(int)
+    all_data = all_data[(all_data.index >= 1800) & (all_data.index <= 2050)]
+    all_data.plot()
 
     ax = plt.gca()
     ax.yaxis.set_major_formatter(lambda x, pos: f'{int(x/1_000_000)}M')

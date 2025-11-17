@@ -16,5 +16,6 @@ def load(path: str) -> DataFrame | None:
         print("Error: unable to load image")
         return None
 
-    print("Loading DataFrame of dimension : " + "(", df.shape[0], ",", df.shape[1], ")")
+    print("Loading DataFrame of dimension : " + "(",
+          df.shape[0], ",", df.shape[1], ")")
     return df
