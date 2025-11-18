@@ -9,6 +9,7 @@ def main() -> bool:
     Argument: None
     Return: 1 on fail, 0 on succes
     '''
+
     pth = "income_per_person_gdppercapita_ppp_inflation_adjusted.csv"
     income_df = load(pth)
     expectancy_df = load("life_expectancy_years.csv")

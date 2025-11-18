@@ -16,10 +16,10 @@ def convert_population(value: str) -> float:
 
     if isinstance(value, str):
         value = value.strip()
-        if value.endswith('M'):
-            return float(value[:-1]) * 1_000_000
-        elif value.endswith('K'):
+        if value.endswith('K'):
             return float(value[:-1]) * 1_000
+        elif value.endswith('M'):
+            return float(value[:-1]) * 1_000_000
         elif value.endswith('B'):
             return float(value[:-1]) * 1_000_000_000
 

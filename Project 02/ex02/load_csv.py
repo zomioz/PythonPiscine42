@@ -13,7 +13,7 @@ def load(path: str) -> DataFrame | None:
     try:
         df = pd.read_csv(path)
     except (FileNotFoundError, PermissionError, IsADirectoryError):
-        print("Error: unable to load image")
+        print("Error: unable to load csv file")
         return None
 
     print("Loading DataFrame of dimension : " + "(",
