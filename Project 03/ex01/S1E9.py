@@ -8,8 +8,6 @@ class Character(ABC):
     '''
 
     @abstractmethod
-    def is_alive(self):
-        pass
     def die(self):
         pass
 
@@ -27,23 +25,15 @@ class Stark(Character):
         Function to init stark class
         '''
 
-        self._Name = name
+        self.first_name = name
         if state is not None:
-            self._State = state
+            self.is_alive = state
 
     @property
-    def is_alive(self):
-
-        '''
-        Function of Stark class, print Self_State
-        '''
-
-        return self._State
-
     def die(self):
 
         '''
-        Function of Stark class, set State to False
+        Function of Stark class, set is_alive to False
         '''
 
-        self._State = False
+        self.is_alive = False
