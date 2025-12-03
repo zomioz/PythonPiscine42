@@ -1,4 +1,11 @@
 def ft_statistics(*args: any, **kwargs: any) -> None:
+
+    '''
+    Function that calcul mathematical expression
+    Argument : multiple store in args and kwargs
+    Return: None
+    '''
+
     if not kwargs:
         return print("ERROR : No mathematical operation asked")
     if not args:
@@ -9,6 +16,7 @@ def ft_statistics(*args: any, **kwargs: any) -> None:
     for x in kwargs:
         match kwargs[x]:
             case "mean":
+
                 total = 0
                 for x in args:
                     total += x
@@ -16,26 +24,31 @@ def ft_statistics(*args: any, **kwargs: any) -> None:
                 print("mean :", total)
 
             case "median":
-                arguments = list(args)
-                arguments.sort()
-                length = len(arguments)//2
 
-                if len(arguments) % 2 != 0:
-                    print("median :", arguments[length])
-                elif len(arguments) % 2 == 0:
-                    print("median :", (arguments[length - 1] + arguments[length]) / 2)
+                arg = list(args)
+                arg.sort()
+                num = len(arg)//2
+
+                if len(arg) % 2 != 0:
+                    print("median :", arg[num])
+                elif len(arg) % 2 == 0:
+                    print("median :", (arg[num - 1] + arg[num]) / 2)
 
             case "quartile":
-                arguments = list(args)
-                arguments.sort()
-                length = len(arguments)//4
 
-                if len(arguments) % 2 != 0:
-                    print("quartile :", [arguments[length], arguments[length * 3]])
-                elif len(arguments) % 2 == 0:
-                    print("quartile :", [(arguments[length * 3 - 1] + arguments[length * 3]) / 2, (arguments[length * 3 - 1] + arguments[length * 3]) / 2])
+                arg = list(args)
+                arg.sort()
+                num = len(arg)//4
+
+                if len(arg) % 2 != 0:
+                    print("quartile :", [arg[num], arg[num * 3]])
+                elif len(arg) % 2 == 0:
+                    print("quartile :",
+                          [(arg[num * 3 - 1] + arg[num * 3]) / 2,
+                           (arg[num * 3 - 1] + arg[num * 3]) / 2])
 
             case "std":
+
                 average = 0
                 for x in args:
                     average += x
@@ -43,9 +56,19 @@ def ft_statistics(*args: any, **kwargs: any) -> None:
 
                 std = 0
                 for x in args:
-                    std += (x - average) * (x - average)
+                    std += (x - average) ** 2
                 std = std / len(args)
-                print("std :", std)
+                print("std :", std ** 0.5)
 
             case "var":
-                print(kwargs[x])
+
+                average = 0
+                for x in args:
+                    average += x
+                average = average / len(args)
+
+                std = 0
+                for x in args:
+                    std += (x - average) ** 2
+                std = std / len(args)
+                print("var :", std)
